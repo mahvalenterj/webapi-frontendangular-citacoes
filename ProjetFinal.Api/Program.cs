@@ -27,7 +27,14 @@ namespace ProjetFinal.Api
             var app = builder.Build();
 
             app.ApplyMigrations();
-            app.UseCors(AppCorsConfiguration.AllowAnything);
+            app.UseCors(builder =>
+            {
+                builder
+                    .WithOrigins("http://127.0.0.1:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+
 
             // Configure o SwaggerUI com a rota correta
             app.UseSwagger();
