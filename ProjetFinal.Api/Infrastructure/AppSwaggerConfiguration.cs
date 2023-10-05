@@ -12,8 +12,8 @@ namespace ProjetFinal.Api.Infrastructure
         {
             var openApiInfo = new OpenApiInfo
             {
-                Title = "BTG Faz Tech - Turma 1038",
-                Description = "Projeto Final do Módulo Web III - WebAPI",
+                Title = "WEBAPI CITAÇÕES",
+                Description = "Projeto WebAPI  com Front para gravar, recuperar, editar e deletar citações",
                 License = new OpenApiLicense
                 {
                     Name = "MIT",
@@ -21,8 +21,8 @@ namespace ProjetFinal.Api.Infrastructure
                 },
                 Contact = new OpenApiContact
                 {
-                    Name = "Turma 1038",
-                    Email = "contato@turma1038.com"
+                    Name = "Marianna Correa",
+                    Email = "mahvalenterj@gmail.com"
                 }
             };
 
