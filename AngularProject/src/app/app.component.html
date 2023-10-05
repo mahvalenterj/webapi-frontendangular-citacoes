@@ -1,0 +1,80 @@
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="../assets/header-logo.svg"
+  />
+  <span>Projeto Final</span>
+    <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+
+
+  <input type="hidden" #selection>
+
+  <div class="card-container">
+    <button class="btn btn-primary" [disabled]="buttonCreate" (click)="showCreate()" id="create">Create</button>
+  </div>
+
+  <div *ngIf="create">
+    <form [formGroup]="quotesForm" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input class="form-control" type="text" id="author" formControlName="author" />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="numContrato">Text</label>
+              <input class="form-control" type="text" id="text" formControlName="text" />
+            </div>
+          </div>
+        </div>
+
+        <div class="justify-content-end">
+          <div class="form-group">
+            <button class="btn btn-primary"
+                    type="submit"
+                    [disabled]="quotesForm.invalid">
+              <span *ngIf="!buttonCreate">Cadastrar</span>
+              <span *ngIf="edit">Atualizar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid">
+
+    <h3>Quotes</h3>
+
+    <table class='table table-striped' aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Author</th>
+          <th>Text</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of quotesList">
+          <td>{{ data.id }}</td>
+          <td>{{ data.author }}</td>
+          <td>{{ data.text }}</td>
+          <td><button class="btn btn-outline-primary" id="edit" (click)="editQuote(data.id)">Edit</button></td>
+          <td><button class="btn btn-outline-danger" id="remove" (click)="delete(data.id)">Remove</button> </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  </div>
